@@ -42,7 +42,7 @@ type Env struct {
 // Load reads the environment file and reads variables in "key:value" yaml format.
 // Then it read the system environment variables. It returns the combined
 // results in a key value map.
-func Load(filepath string) (Env, error) {
+func Load(filepath string) (Env, err) {
   
   cfgFile, err := ioutil.ReadFile(filepath)
   
