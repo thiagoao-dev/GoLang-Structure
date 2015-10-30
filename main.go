@@ -31,5 +31,6 @@ func main() {
     }).Fatal("Faild to get the configuration")    
   }
   
+  
   //store_ := datastore.Load(env.EnvMode(*envmod))
 }
