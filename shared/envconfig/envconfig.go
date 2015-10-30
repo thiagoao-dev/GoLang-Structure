@@ -39,6 +39,18 @@ type Env struct {
   } `yaml:"prod"`
 }
 
+// EnvMod return specific environment mode config
+func (env Env) EnvMod(envmode string) return Env {
+  switch envmode {
+    default:
+    	return env.Prod
+    case "prod":
+    	return env.Prod
+    case "dev":
+    	return env.Dev
+  }
+}
+
 // Load reads the environment file and reads variables in "key:value" yaml format.
 // Then it read the system environment variables. It returns the combined
 // results in a key value map.
@@ -50,7 +62,7 @@ func Load(filepath string) (*Env, error) {
     log.WithFields(log.Fields{
       "event": "Faild to read",
       "topic": "Config",
-      "key"  : 16,
+      "code" : 16,
     }).Fatal("Faild to read the configuration file")
     return nil, err
   }
@@ -61,7 +73,7 @@ func Load(filepath string) (*Env, error) {
     log.WithFields(log.Fields{
       "event": "Faild to set",
       "topic": "Config",
-      "key"  : 27,
+      "code" : 27,
     }).Fatal("Faild to set the configuration file")
     return nil, err
   }
