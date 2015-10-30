@@ -1,7 +1,6 @@
 package envconfig
 
 import (
-  "fmt"
   "io/ioutil"
   "gopkg.in/yaml.v2"
   log "github.com/Sirupsen/logrus"
@@ -68,8 +67,6 @@ func Load(filepath string) (*Env, error) {
   }
   
   appCfg := mapAppCfg["config"]
-  fmt.Println(appCfg)
   
   return appCfg, nil
-  
 }
