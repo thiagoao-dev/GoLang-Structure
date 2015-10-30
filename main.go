@@ -20,5 +20,5 @@ func main() {
   }
   
   // Load the configuration from yaml file
-  env := envconfig.Load(*appenv)
+  env, err := envconfig.Load(*appenv)
 }
