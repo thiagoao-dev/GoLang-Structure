@@ -2,8 +2,8 @@ package main
 
 import (
   "flag"
-  "github.com/Sirupsen/logrus"
-  "github.com/thiagoaugustus/shared/envconfig"
+  log "github.com/Sirupsen/logrus"
+  "github.com/thiagoaugustus/GoLang-Structure/shared/envconfig"
 )
 
 var (
@@ -16,7 +16,7 @@ func main() {
   
   // debug level if requested by user
   if *debug {
-    logrus.SetLevel(logrus.DebugLevel)
+    log.SetLevel(logrus.DebugLevel)
   }
   
   // Load the configuration from yaml file
