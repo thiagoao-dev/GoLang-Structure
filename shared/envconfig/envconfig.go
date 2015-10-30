@@ -43,7 +43,7 @@ type Env struct {
 // Load reads the environment file and reads variables in "key:value" yaml format.
 // Then it read the system environment variables. It returns the combined
 // results in a key value map.
-func Load(filepath string) (*Env, error) {
+func Load(filepath string) *Env {
   
   cfgFile, err := ioutil.ReadFile(filepath)
   
@@ -53,7 +53,7 @@ func Load(filepath string) (*Env, error) {
       "topic": "Config",
       "key"  : 16,
     }).Fatal("Faild to read the configuration file")
-    return nil, err
+    return nil
   }
   
   mapAppCfg := map[string]*Env{} 
@@ -64,12 +64,12 @@ func Load(filepath string) (*Env, error) {
       "topic": "Config",
       "key"  : 27,
     }).Fatal("Faild to set the configuration file")
-    return nil, err
+    return nil
   }
   
   appCfg := mapAppCfg["config"]
   fmt.Println(appCfg)
   
-  return appCfg, nil
+  return *appCfg
   
 }
