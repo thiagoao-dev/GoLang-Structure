@@ -42,15 +42,15 @@ type Env struct {
 // Load reads the environment file and reads variables in "key:value" yaml format.
 // Then it read the system environment variables. It returns the combined
 // results in a key value map.
-func Load(filepath string) Env, err {
+func Load(filepath string) (Env, err) {
   
-  cfgFile, err := ioutil.ReadFile(path)
+  cfgFile, err := ioutil.ReadFile(filepath)
   
   if err != nil {
     log.WithFields(log.Fields{
-      "event": "Faild to read"
-      "topic": "Config"
-      "key"  : 16
+      "event": "Faild to read",
+      "topic": "Config",
+      "key"  : 16,
     }).Fatal("Faild to read the configuration file")
     return nil, err
   }
