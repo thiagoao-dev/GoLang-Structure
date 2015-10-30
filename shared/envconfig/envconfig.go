@@ -9,19 +9,34 @@ import (
 type Env struct {
   Dev struct {
     Server   struct {
-      Host   string
-      Port   uint
-      Prefix string
-    },
+      Host   string `yaml:"host"`
+      Port   uint   `yaml:"port"`
+      Prefix string `yaml:"prefix"`
+    } `yaml:"server"`
     DB struct {
-      Host   string
-      Driver string
-      DBName string
-      Port   uint
-      User   string
-      Pass   string      
-    }
-  }
+      Host   string `yaml:"host"`
+      Driver string `yaml:"driver"`
+      DBName string `yaml:"dbname"`
+      Port   uint   `yaml:"port"`
+      User   string `yaml:"user"`
+      Pass   string `yaml:"pass"`
+    } `yaml:"db"`
+  } `yaml:"dev"`
+  Prod struct {
+    Server   struct {
+      Host   string `yaml:"host"`
+      Port   uint   `yaml:"port"`
+      Prefix string `yaml:"prefix"`
+    } `yaml:"server"`
+    DB struct {
+      Host   string `yaml:"host"`
+      Driver string `yaml:"driver"`
+      DBName string `yaml:"dbname"`
+      Port   uint   `yaml:"port"`
+      User   string `yaml:"user"`
+      Pass   string `yaml:"pass"`
+    } `yaml:"db"`
+  } `yaml:"prod"`
 }
 
 // Load reads the environment file and reads variables in "key:value" yaml format.
