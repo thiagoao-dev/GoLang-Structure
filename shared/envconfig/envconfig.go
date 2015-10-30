@@ -68,6 +68,7 @@ func Load(filepath string) (*Env, error) {
   }
   
   appCfg := mapAppCfg["config"]
+  fmt.Println(appCfg)
   
   return appCfg, nil
   
