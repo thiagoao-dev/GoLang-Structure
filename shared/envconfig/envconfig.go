@@ -59,9 +59,9 @@ func Load(filepath string) (Env, err) {
   
   if err = yaml.Unmarshal(cfgFile, appCfg); err != nil {
     log.WithFields(log.Fields{
-      "event": "Faild to set"
-      "topic": "Config"
-      "key"  : 27
+      "event": "Faild to set",
+      "topic": "Config",
+      "key"  : 27,
     }).Fatal("Faild to set the configuration file")
     return nil, err
   }
