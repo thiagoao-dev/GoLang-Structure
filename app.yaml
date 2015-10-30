@@ -1,24 +1,25 @@
-dev:
-	server:
-   	host: localhost
-      port: 8080
-      prefix: /api
-   db:
-   	host: 127.0.0.1
-      driver: mysql
-      dbname: app
-      port: 3306
-      user: root
-      pass: toor
-prod:
-	server:
-   	host: 
-      port: 
-      prefix: /api
-   db:
-   	host: 
-      driver: 
-      dbname: 
-      port: 
-      user: 
-      pass: 
+config:
+  dev:
+     server:
+        host: localhost
+        port: 8080
+        prefix: /api
+     db:
+        host: 127.0.0.1
+        driver: mysql
+        dbname: app
+        port: 3306
+        user: root
+        pass: toor
+  prod:
+     server:
+        host: 
+        port: 
+        prefix: /api
+     db:
+        host: 
+        driver: 
+        dbname: 
+        port: 
+        user: 
+        pass: 
