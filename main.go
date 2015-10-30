@@ -16,7 +16,7 @@ func main() {
   
   // debug level if requested by user
   if *debug {
-    log.SetLevel(logrus.DebugLevel)
+    log.SetLevel(log.DebugLevel)
   }
   
   // Load the configuration from yaml file
