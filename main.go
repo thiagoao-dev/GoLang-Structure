@@ -3,7 +3,7 @@ package main
 import (
   "flag"
   log "github.com/Sirupsen/logrus"
-  "github.com/thiagoaugustus/GoLang-Structure/shared/envconfig"
+  "github.com/thiagoao/GoLang-Structure/shared/envconfig"
 )
 
 var (
