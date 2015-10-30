@@ -1,6 +1,7 @@
 package envconfig
 
 import (
+  "fmt"
   "io/ioutil"
   "gopkg.in/yaml.v2"
   log "github.com/Sirupsen/logrus"
@@ -55,9 +56,9 @@ func Load(filepath string) (*Env, error) {
     return nil, err
   }
   
-  appCfg := map[string]*Env{} 
+  mapAppCfg := map[string]*Env{} 
   
-  if err = yaml.Unmarshal(cfgFile, appCfg); err != nil {
+  if err = yaml.Unmarshal(cfgFile, mapAppCfg); err != nil {
     log.WithFields(log.Fields{
       "event": "Faild to set",
       "topic": "Config",
@@ -65,6 +66,8 @@ func Load(filepath string) (*Env, error) {
     }).Fatal("Faild to set the configuration file")
     return nil, err
   }
+  
+  appCfg := mapAppCfg["config"]
   
   return appCfg, nil
   

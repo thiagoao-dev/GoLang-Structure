@@ -7,7 +7,7 @@ import (
 )
 
 var (
-  appenv = flag.String("config", ".yaml", "")
+  appenv = flag.String("config", "app.yaml", "")
   debug	= flag.Bool("debug", false, "")
 )
 
