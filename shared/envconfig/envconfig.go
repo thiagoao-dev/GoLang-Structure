@@ -6,7 +6,23 @@ import (
   log "github.com/Sirupsen/logrus"
 )
 
-type Env map[string]*Env{}
+type Env struct {
+  Dev struct {
+    Server   struct {
+      Host   string
+      Port   uint
+      Prefix string
+    },
+    DB struct {
+      Host   string
+      Driver string
+      DBName string
+      Port   uint
+      User   string
+      Pass   string      
+    }
+  }
+}
 
 // Load reads the environment file and reads variables in "key:value" yaml format.
 // Then it read the system environment variables. It returns the combined
@@ -24,7 +40,9 @@ func Load(filepath string) Env, err {
     return nil, err
   }
   
-  if err = yaml.Unmarshal(cfgFile, Env); err != nil {
+  appCfg := map[string]*Env{} 
+  
+  if err = yaml.Unmarshal(cfgFile, appCfg); err != nil {
     log.WithFields(log.Fields{
       "event": "Faild to set"
       "topic": "Config"
@@ -33,6 +51,6 @@ func Load(filepath string) Env, err {
     return nil, err
   }
   
-  return Env, nil
+  return appCfg, nil
   
 }
